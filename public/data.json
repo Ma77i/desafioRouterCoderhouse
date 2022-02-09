@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "title": "Hardrock A1",
+    "price": 765,
+    "thumbnail": "https://assets.specialized.com/i/specialized/121879?bg=rgb(241,241,241)&w=2500&h=1406&fmt=auto"
+  },
+  {
+    "id": 2,
+    "title": "Rockhopper",
+    "price": 965,
+    "thumbnail": "https://assets.specialized.com/i/specialized/91520-45_ROCKHOPPER-ELITE-29-CSTBLK-BLK_HERO"
+  }
+]
