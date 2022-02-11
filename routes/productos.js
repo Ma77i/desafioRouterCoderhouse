@@ -27,14 +27,25 @@ router.get('/', async (req, res) => {
     res.status(200).send(list)
 })
 
-router.get('/:id', (req, res) => {
-    const prod = products.find(i => i.id == req.params.id)
+router.get('/:id', async (req, res) => {
+    const { id } = req.params
+
+    const getId = await products.getById(id)
+    console.log(getId)
+
+    if (!getId) {
+        res.status(404).send("Product not found")
+        return
+    }
+    res.send(getId)
+
+/*     const prod = products.find(i => i.id == req.params.id)
     if (!prod) {
         res.status(404).send("Product not found")
         return
     }
 
-    res.send(prod)
+    res.send(prod) */
 })
 
 router.post('/', (req, res) => {
@@ -58,9 +69,9 @@ router.post('/', (req, res) => {
 
 
 router.put('/:id', (req, res, next) => {
-    const {
-        id
-    } = req.params
+
+    
+/*     const { id } = req.params
     if (id == "1") {
         res.status(401).send("Movie 1 cannot be changed")
         return
@@ -82,13 +93,11 @@ router.put('/:id', (req, res, next) => {
     }
 
     movie.name = name;
-    res.sendStatus(200)
+    res.sendStatus(200) */
 })
 
-router.delete('/:id', (req, res) => {
-    const {
-        id
-    } = req.params
+router.delete('/:id', async (req, res) => {
+/*     const { id } = req.params
 
     const prod = products.find(m => m.id == id)
     if (!prod) {
@@ -97,9 +106,23 @@ router.delete('/:id', (req, res) => {
     }
 
     const index = products.indexOf(movie)
-    movies.splice(index, 1)
+    movies.splice(index, 1) */
 
-    res.sendStatus(200)
+
+
+    const { id } = req.params
+
+
+    const del = await products.deleteById(id)
+    //console.log(del)
+
+
+    if (!del) {
+        res.status(404).send("Product not found")
+        return
+    }
+
+    res.send(del)
 })
 
-module.exports = router, products
+module.exports = router

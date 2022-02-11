@@ -4,9 +4,9 @@ const { Router } = express
 
 const router = Router()
 
-/* const Contenedor = require(path.join(__dirname, "../public/js/contenedor.js"));
+const Contenedor = require(path.join(__dirname, "../public/js/contenedor.js"));
 
-const products = new Contenedor(path.join(__dirname, "../public/data.json")) */
+const products = new Contenedor(path.join(__dirname, "../public/data.json"))
 
 
 router.get("/", (req, res) => {
@@ -14,12 +14,10 @@ router.get("/", (req, res) => {
 })
 
 
-router.post("/addProducts", async (req, res) => {
-    console.log(typeof(req.body))
-    console.log(req.body)
-    //const save = await products.save(req.body)
-    //res.status(201).send(save)
-    //res.redirect('/')
+router.post("/", (req, res) => {
+    const save = products.save(req.body)
+    res.status(201).send(save)
+    res.redirect('/')
 })
 
 

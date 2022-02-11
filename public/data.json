@@ -10,5 +10,11 @@
     "title": "Rockhopper",
     "price": 965,
     "thumbnail": "https://assets.specialized.com/i/specialized/91520-45_ROCKHOPPER-ELITE-29-CSTBLK-BLK_HERO"
+  },
+  {
+    "id": 3,
+    "title": "Chisel",
+    "price": 1265,
+    "thumbnail": "https://assets.specialized.com/i/specialized/91718-37_CHISEL-WMN_DSW-EXPERT-29_CSTBLU-ACDLAVA_HERO"
   }
 ]
