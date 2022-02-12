@@ -27,7 +27,7 @@ class Contenedor {
     async getById(id) {
         const prods = await this.getAll()
         const result = prods.find(item=>item.id == id)
-        console.log(result);
+        //console.log(result);
         return result
     }
 
@@ -42,30 +42,24 @@ class Contenedor {
     }
 
 
-    async updateById(id){
-        const { id } = req.params
-        if (id == "1") {
-            res.status(401).send("Movie 1 cannot be changed")
-            return
-        }
-    
-        next()
-    }, (req, res) => {
-        const {
-            id
-        } = req.params
-        const {
-            name
-        } = req.body
-    
-        const movie = movies.find(m => m.id == id)
-        if (!movie) {
-            res.status(404).send("Movie not found")
-            return
-        }
-    
-        movie.name = name;
-        res.sendStatus(200)
+    async updateById(id, obj){
+
+        const prod = await this.getAll();
+        const index = prod.findIndex(p => p.id == id);
+        prod[index].title = obj.title;
+        prod[index].price = obj.price;
+        prod[index].thumbnail = obj.thumbnail;
+
+/*         const prods = await this.getAll()
+        const result = prods.find(item=>item.id == id)
+        const { price, title } = this.list
+        result.price = price;
+        result.title = title
+        console.log(result)
+        const updated = prods.findIndex(result)
+        console.log(updated) */
+        await fs.writeFile(this.path, JSON.stringify(prod, null, 2), "utf8")
+        
     }
 
 

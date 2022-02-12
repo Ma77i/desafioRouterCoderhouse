@@ -68,14 +68,20 @@ router.post('/', (req, res) => {
 })
 
 
-router.put('/:id', (req, res, next) => {
-
-    
-/*     const { id } = req.params
-    if (id == "1") {
-        res.status(401).send("Movie 1 cannot be changed")
+router.put('/:id', async (req, res, next) => {
+    const { id } = req.params
+    const update = await products.getById(id)
+    //console.log(update)
+    if (!update) {
+        res.status(404).send({
+            error: "Product not found"})
         return
     }
+    const obj = req.body
+    products.updateById(id, obj)
+
+    res.status(200).send(update)
+/*     
 
     next()
 }, (req, res) => {
