@@ -2,3 +2,23 @@
     margin: 0;
     padding: 0;
 }
+
+h1 {
+    text-align: center;
+}
+
+nav {
+    background-color: aquamarine;
+}
+
+
+ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+li {
+    list-style: none;
+    padding: 2px 15px;
+}

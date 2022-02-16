@@ -1,0 +1,12 @@
+extends layout/base.pug
+block content
+    div 
+        p Producto agregado
+        div 
+            img(src="#{prod.thumbnails}", alt="")
+            ul 
+                each prod in list
+                    li= prod.title 
+                    li= prod.price 
+                else
+                    li No hay productos

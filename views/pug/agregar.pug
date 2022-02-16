@@ -1,0 +1,14 @@
+extends layout/base.pug
+block content 
+    form(action="/addProducts" method="post")
+        div
+            label(for="title") Nombre
+            input(name="title")
+        div
+            label(for="price") Precio
+            input(name="price" type="number" )
+        div
+            label(for="thumbnail") Thumbnail
+            input(name="thumbnail")
+        div
+            button(type="submit") Enviar
